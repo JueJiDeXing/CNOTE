@@ -3,6 +3,7 @@
 #include "../Status.h"
 #include "malloc.h"
 #include <stdbool.h>
+#include <stdio.h>
 
 typedef struct {
     int *base;
@@ -64,4 +65,9 @@ Status Destroy(Stack *stack) {
     free(stack->base);
     return OK;
 }
-void PrintStack
+
+void PrintStack(Stack stack) {
+    for (int *i = stack.base; i < stack.top; i++) {
+        printf("%d ", *i);
+    }
+}
