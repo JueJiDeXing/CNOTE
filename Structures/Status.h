@@ -3,8 +3,6 @@
 //
 #ifndef PROJECT_STATUS_H
 #define PROJECT_STATUS_H
-
-#define DEFAULT_CAPACITY 16
 #define OK 1
 #define ERROR (-1)
 #define OVERFLOW (-2)

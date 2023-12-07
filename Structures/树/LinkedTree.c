@@ -37,5 +37,8 @@ bool IsEmpty(Tree tree) {
 
 Status Put(Tree *tree) {
     Node *p = tree->root;
+    //TODO
 
+
+    return OK;
 }

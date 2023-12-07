@@ -2,25 +2,29 @@
 // Created on 2023/10/26
 #include "../Status.h"
 #include "malloc.h"
-
-/*
--Hello World.
--You are my world too.
-*/
+#include <stdbool.h>
 
 typedef struct {
     int *base;
     int *top;
-    int size;
+    int capacity;
 } Stack;
 
-int getLength(Stack stack) {
+int GetLength(Stack stack) {
     return stack.top - stack.base;
 }
 
+bool IsEmpty(Stack stack) {
+    return stack.top == stack.base;
+}
+
+bool IsFull(Stack stack) {
+    return stack.top - stack.base == stack.capacity;
+}
+
 Status InitStack(Stack *stack) {  //初始化栈
-    stack->base = malloc(sizeof(int) * DEFAULT_CAPACITY);
-    stack->size = DEFAULT_CAPACITY;
+    stack->base = malloc(sizeof(int) * DEFAULT_SIZE);
+    stack->capacity = DEFAULT_SIZE;
     if (!stack->base) exit(ERROR);
     stack->top = 0;
     return OK;
@@ -30,17 +34,16 @@ Status Pop(Stack *stack, int *e) { //弹栈
     if (stack->top == stack->base) exit(ERROR);
     stack->top--;
     *e = *stack->top;
-    stack->size--;
     return OK;
 }
 
 Status Push(Stack *stack, int e) {
-    if (stack->size == stack->top - stack->base) {
+    if (stack->capacity == stack->top - stack->base) {
         exit(OVERFLOW); // 栈满, 退出
     }
     *stack->top = e;
     stack->top++;
-    stack->size++;
+    stack->capacity++;
     return OK;
 }
 
@@ -51,3 +54,14 @@ Status Peek(Stack *stack, int *e) {
     return OK;
 }
 
+
+Status Clear(Stack *stack) {
+    stack->top = stack->base;
+    return OK;
+}
+
+Status Destroy(Stack *stack) {
+    free(stack->base);
+    return OK;
+}
+void PrintStack

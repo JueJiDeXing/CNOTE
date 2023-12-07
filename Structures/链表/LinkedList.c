@@ -12,14 +12,14 @@ typedef struct LNode { //结点类型
 } LNode, *LinkedList;
 
 
-Status init_LinkedList(LinkedList *L) {
+Status InitLinkedList(LinkedList *L) {
     *L = malloc(sizeof(LNode));
     if (!*L) exit(OVERFLOW);
     (*L)->next = NULL;
     return OK;
 }
 
-int getLength_LinkedList(LinkedList L) {
+int GetLength(LinkedList L) {
     LinkedList p = L->next;
     int len = 0;
     while (p) {
@@ -29,7 +29,7 @@ int getLength_LinkedList(LinkedList L) {
     return len;
 }
 
-Status append_LinkedList(LinkedList *L, int e) {
+Status Append(LinkedList *L, int e) {
     LinkedList p = (*L);
     while (p->next) {
         p = p->next;
@@ -48,7 +48,7 @@ Status append_LinkedList(LinkedList *L, int e) {
  * @param e 插入的元素
  * @return
  */
-Status insert_LinkedList(LinkedList *L, int n, int e) {
+Status Insert(LinkedList *L, int n, int e) {
     LinkedList p = (*L);
     for (int i = 0; i < n; i++) {
         p = p->next;
@@ -61,7 +61,7 @@ Status insert_LinkedList(LinkedList *L, int n, int e) {
     return OK;
 }
 
-Status getElem_LinkedList(LinkedList L, int n, int *e) {
+Status GetElem(LinkedList L, int n, int *e) {
     LinkedList p = L->next;
     int i;
     for (i = 1; i < n; i++)
@@ -77,7 +77,7 @@ Status getElem_LinkedList(LinkedList L, int n, int *e) {
  * @param L
  * @param n
  */
-void create_LinkedList(LinkedList *L, int n) {
+void CreateLinkedList(LinkedList *L, int n) {
     (*L) = malloc(sizeof(LNode));
     if (!*L) exit(OVERFLOW);
     (*L)->next = NULL;
@@ -90,7 +90,7 @@ void create_LinkedList(LinkedList *L, int n) {
     }
 }
 
-void clear_LinkedList(LinkedList *L) {
+void Clear(LinkedList *L) {
     LinkedList p = (*L)->next;
     while (p != NULL) {
         LinkedList q = p;
@@ -100,11 +100,11 @@ void clear_LinkedList(LinkedList *L) {
     (*L)->next = NULL;
 }
 
-bool isEmpty_LinkedList(LinkedList L) {
+bool IsEmpty(LinkedList L) {
     return !L->next;
 }
 
-int locateElem_LinkedList(LinkedList L, int e, bool(*compare)(int, int)) {
+int LocateElem(LinkedList L, int e, bool(*compare)(int, int)) {
     LinkedList p = L->next;
     int i = 1;
     while (p) {
@@ -123,7 +123,7 @@ int locateElem_LinkedList(LinkedList L, int e, bool(*compare)(int, int)) {
  * @param pre_e
  * @return
  */
-Status priorElem_LinkedList(LinkedList L, int cur_e, int *pre_e) {
+Status PriorElem(LinkedList L, int cur_e, int *pre_e) {
     LinkedList p = L->next;
     LinkedList q = L;
     while (p && p->data != cur_e) {
@@ -142,7 +142,7 @@ Status priorElem_LinkedList(LinkedList L, int cur_e, int *pre_e) {
  * @param nex_e
  * @return
  */
-Status nextElem_LinkedList(LinkedList L, int cur_e, int *nex_e) {
+Status NextElem(LinkedList L, int cur_e, int *nex_e) {
     LinkedList p = L;
     while (p->next && p->data != cur_e)
         p = p->next;
@@ -153,12 +153,8 @@ Status nextElem_LinkedList(LinkedList L, int cur_e, int *nex_e) {
 
 /**
  * 插入节点到链表元素值为e的节点前
- * @param L
- * @param e
- * @param insertVal
- * @return
  */
-Status insertByVal_LinkedList(LinkedList *L, int e, int insertVal) {
+Status InsertByVal(LinkedList *L, int e, int insertVal) {
     LinkedList p = (*L)->next;
     LinkedList prev = *L;
     while (p && p->data != e) {
@@ -175,11 +171,8 @@ Status insertByVal_LinkedList(LinkedList *L, int e, int insertVal) {
 
 /**
  * 按值删除元素
- * @param L
- * @param e 要删除的元素值
- * @return
  */
-Status delete_LinkedList(LinkedList *L, int e) {
+Status Delete(LinkedList *L, int e) {
     LinkedList p = (*L)->next;
     LinkedList prev = *L;
 
@@ -199,7 +192,7 @@ Status delete_LinkedList(LinkedList *L, int e) {
  * @param Lb
  * @return
  */
-Status merge_LinkedList(LinkedList *La, LinkedList *Lb) { //用于非递减链表
+Status Merge(LinkedList *La, LinkedList *Lb) { //用于非递减链表
     LinkedList p = *La;
     LinkedList Pa = (*La)->next;
     LinkedList Pb = (*Lb)->next;
@@ -224,7 +217,7 @@ Status merge_LinkedList(LinkedList *La, LinkedList *Lb) { //用于非递减链�
  * @param L
  * @return
  */
-Status reverse_LinkedList(LinkedList *L) {
+Status Reverse(LinkedList *L) {
     LinkedList curr = (*L)->next;
     LinkedList prev = NULL, next = NULL;
     while (curr) {
@@ -237,7 +230,7 @@ Status reverse_LinkedList(LinkedList *L) {
     return OK;
 }
 
-void printLinkedList(LinkedList L) {
+void PrintLinkedList(LinkedList L) {
     LinkedList p = L->next;
     while (p != NULL) {
         printf("%d->", p->data);

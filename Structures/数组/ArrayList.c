@@ -17,11 +17,11 @@ typedef struct {
  * @param L 顺序表数组
  * @return 状态码
  */
-Status init_ArrayList(ArrayList *L) {
+Status InitArrayList(ArrayList *L) {
     L->elem = malloc(sizeof(int) * LIST_INIT_SIZE);
     if (!L->elem) exit(OVERFLOW);
     L->length = 0;
-    L->capacity = DEFAULT_CAPACITY;
+    L->capacity = DEFAULT_SIZE;
     return OK;
 }
 
@@ -30,7 +30,7 @@ Status init_ArrayList(ArrayList *L) {
  * @param L 顺序表数组
  * @return 返回函数状态码
  */
-Status destroy_ArrayList(ArrayList *L) {
+Status  Destroy(ArrayList *L) {
     free(L->elem);
     return OK;
 }
@@ -40,7 +40,7 @@ Status destroy_ArrayList(ArrayList *L) {
  * @param L
  * @return 函数状态码
  */
-Status clear_ArrayList(ArrayList *L) {
+Status Clear(ArrayList *L) {
     L->length = 0;
     return OK;
 }
@@ -49,12 +49,12 @@ Status clear_ArrayList(ArrayList *L) {
  * @param L 顺序表
  * @return bool
  */
-bool isEmpty_Array(ArrayList *L) {
+bool IsEmpty(ArrayList *L) {
     if (!L->elem) true;
     return false;
 }
 
-bool isFull_Array(ArrayList *L) {
+bool IsFull(ArrayList *L) {
     if (!L->elem) exit(ERROR);
     return L->length == L->capacity;
 
@@ -65,7 +65,7 @@ bool isFull_Array(ArrayList *L) {
  * @param L 顺序表
  * @return 元素个数
  */
-int getLength_Array(ArrayList *L) {
+int GetLength(ArrayList *L) {
     return L->length;
 }
 
@@ -76,7 +76,7 @@ int getLength_Array(ArrayList *L) {
  * @param elem 被赋值的变量
  * @return 函数状态
  */
-Status getElem_Array(ArrayList *L, int i, int *elem) {
+Status GetElem(ArrayList *L, int i, int *elem) {
     if (i < 0 || i >= L->length)
         return ERROR;
     *elem = L->elem[i];
@@ -88,7 +88,7 @@ Status getElem_Array(ArrayList *L, int i, int *elem) {
  * @param e
  * @return
  */
-bool contain_Array(ArrayList *L, int e) {
+bool IsContain(ArrayList *L, int e) {
     for (int i = 0; i < L->length; i++) {
         if (L->elem[i] == e) {
             return true;
@@ -104,7 +104,7 @@ bool contain_Array(ArrayList *L, int e) {
  * @param compare 比较方法
  * @return
  */
-int locateElem_Array(ArrayList *L, int e, bool (*compare)(int, int)) {
+int LocateElem(ArrayList *L, int e, bool (*compare)(int, int)) {
     for (int i = 0; i < L->length; i++)
         if (compare(e, L->elem[i]))
             return i;
@@ -117,7 +117,7 @@ int locateElem_Array(ArrayList *L, int e, bool (*compare)(int, int)) {
  * @param pre_elem 前驱值
  * @return
  */
-Status priorElem_Array(ArrayList *L, int cur_elem, int *pre_elem) {
+Status PriorElem(ArrayList *L, int cur_elem, int *pre_elem) {
     if (cur_elem == L->elem[0])
         return ERROR;
     for (int k = 1; k < L->length; k++)
@@ -135,7 +135,7 @@ Status priorElem_Array(ArrayList *L, int cur_elem, int *pre_elem) {
  * @param nex_elem 后继值
  * @return
  */
-Status nextElem_Array(ArrayList *L, int cur_elem, int *nex_elem) {
+Status NextElem(ArrayList *L, int cur_elem, int *nex_elem) {
     if (cur_elem == L->elem[L->length - 1])
         return ERROR;
     for (int k = 0; k < L->length - 1; k++)
@@ -153,10 +153,10 @@ Status nextElem_Array(ArrayList *L, int cur_elem, int *nex_elem) {
  * @param i 插入索引
  * @return
  */
-Status insert_Array(ArrayList *L, int e, int i) {
+Status Insert(ArrayList *L, int e, int i) {
     if (i < 0 || i > L->length)//索引越界
         return ERROR;
-    if (isFull_Array(L)) {
+    if (IsFull(L)) {
         return ERROR;
     }
     for (int j = L->length - 1; j >= i; j--)//把插入位置及以后的元素向后移动一位
@@ -173,7 +173,7 @@ Status insert_Array(ArrayList *L, int e, int i) {
  * @param i 索引
  * @return
  */
-Status delete_Array(ArrayList *L, int *e, int i) {
+Status Delete(ArrayList *L, int *e, int i) {
     if (i < 0 || i >= L->length)
         return ERROR;
     *e = L->elem[i];
@@ -183,60 +183,64 @@ Status delete_Array(ArrayList *L, int *e, int i) {
     return OK;
 }
 
-Status travers_Array(ArrayList *L, int (*visit)(int)) {
+Status Travers(ArrayList *L, int (*visit)(int)) {
     for (int i = 0; i < L->length; i++)
         L->elem[i] = visit(L->elem[i]);
     return OK;
 }
 
-Status append_Array(ArrayList *L, int elem) {
+Status Append(ArrayList *L, int elem) {
     L->elem[L->length] = elem;
     L->length++;
     return OK;
 }
 
 
-// 将两个线性表取并集,L1并L2 = L1
-//将所有在线性表L2但不在L1的数据元素插入到L1
-void unite_Array(ArrayList *L1, ArrayList *L2) {
-    int len2 = getLength_Array(L2);
+/**
+ *
+ * 将两个线性表取并集,L1并L2 = L1
+ * 将所有在线性表L2但不在L1的数据元素插入到L1
+ */
+
+void Unite(ArrayList *L1, ArrayList *L2) {
+    int len2 = GetLength(L2);
     int e = 0;
     for (int i = 1; i <= len2; i++) {
-        getElem_Array(L2, i, &e);
-        if (!contain_Array(L1, e))
-            append_Array(L1, e);
+        GetElem(L2, i, &e);
+        if (!IsContain(L1, e))
+            Append(L1, e);
     }
 }
 
 // 将两个线性表合并成一个新线性表
 void merge_Array(ArrayList L1, ArrayList L2, ArrayList *L3) {
-    int len1 = getLength_Array(&L1);
-    int len2 = getLength_Array(&L2);
+    int len1 = GetLength(&L1);
+    int len2 = GetLength(&L2);
     int i = 0, j = 0;
     int e1 = 0, e2 = 0;
 
     while (i < len1 && j < len2) {
-        getElem_Array(&L1, i, &e1);
-        getElem_Array(&L2, j, &e2);
+        GetElem(&L1, i, &e1);
+        GetElem(&L2, j, &e2);
         if (e1 <= e2) {
-            append_Array(L3, e1);
+            Append(L3, e1);
             i++;
         } else {
-            append_Array(L3, e1);
+            Append(L3, e1);
             j++;
         }
     }
     while (i < len1) {
-        getElem_Array(&L1, i++, &e1);
-        append_Array(L3, e1);
+        GetElem(&L1, i++, &e1);
+        Append(L3, e1);
     }
     while (j < len2) {
-        getElem_Array(&L2, j++, &e2);
-        append_Array(L3, e2);
+        GetElem(&L2, j++, &e2);
+        Append(L3, e2);
     }
 }
 
-void printArrayList(ArrayList L) {
+void PrintArrayList(ArrayList L) {
     printf("[");
     for (int i = 0; i < L.length; i++) {
         printf("%d", L.elem[i]);

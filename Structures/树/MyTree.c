@@ -16,6 +16,7 @@ typedef struct BiTNode {
     struct BiTNode *left, *right; // 左右孩子指针
 } BiTNode, *BiTree;
 
+//适用于BiTNode的栈结构
 typedef struct {
     BiTree *top;
     BiTree *base;

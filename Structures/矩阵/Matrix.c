@@ -345,8 +345,6 @@ Status CreateSMatrix(SMatrix *M) {
 
     scanf("%d %d %d", &M->mu, &M->nu, &M->tu);
     getchar(); // 读取换行符
-    M->data = malloc(sizeof(Triple) * M->tu); // 分配内存
-    if (!M->data) exit(ERROR);  //内存分配失败
 
     for (int k = 0; k < M->tu; k++) { //将值输入到数组中
         printf("请依次输入第%d个元素的行下标", k + 1);

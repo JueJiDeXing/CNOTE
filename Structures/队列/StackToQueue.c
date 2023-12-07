@@ -24,7 +24,7 @@ typedef struct MyQueue {
  * @param queue
  * @return
  */
-Status InitQueue(MyQueue *queue) {
+Status _InitQueue(MyQueue *queue) {
     InitStack(&queue->s1);
     InitStack(&queue->s2);
     return OK;
@@ -36,7 +36,7 @@ Status InitQueue(MyQueue *queue) {
  * @param e 要添加的元素
  * @return
  */
-Status Offer(MyQueue *queue, int e) {
+Status _Offer(MyQueue *queue, int e) {
     //添加元素到队尾
     // 先把栈2的元素全部转移至栈1
     // 此时栈1顶即为队头,添加元素到栈1即可
@@ -73,7 +73,7 @@ Status Offer(MyQueue *queue, int e) {
  * @param e 用于存储弹出的值
  * @return
  */
-Status Poll(MyQueue *queue, int *e) {
+Status _Poll(MyQueue *queue, int *e) {
     // 先把栈1的元素全部转移至栈2
     // 此时栈2顶即为队头,弹出栈2顶部元素即可
     while (!IsEmpty(queue->s1)) {
@@ -90,13 +90,15 @@ Status Poll(MyQueue *queue, int *e) {
  * @param queue 队列
  * @return
  */
-int Peek(MyQueue queue) {
+int _Peek(MyQueue queue) {
     while (!IsEmpty(queue.s1)) {
         int elemInS1;
         Pop(&queue.s1, &elemInS1);
         Push(&queue.s2, elemInS1);
     }
-    return GetTop(queue.s2);
+    int e;
+    Peek(&queue.s2,&e);
+    return e;
 }
 
 /**
@@ -104,7 +106,7 @@ int Peek(MyQueue queue) {
  * @param queue 队列
  * @return
  */
-int GetQueueLength(MyQueue queue) {
+int _GetLength(MyQueue queue) {
     return GetLength(queue.s1) + GetLength(queue.s2);
 }
 
@@ -112,7 +114,7 @@ int GetQueueLength(MyQueue queue) {
  * 打印队列
  * @param queue 队列
  */
-void PrintQueue(MyQueue *queue) {
+void _PrintQueue(MyQueue *queue) {
     while (!IsEmpty(queue->s2)) {//先全部转到s1中再调用栈的打印方法
         int elemInS2;
         Pop(&queue->s2, &elemInS2);
@@ -127,25 +129,25 @@ void PrintQueue(MyQueue *queue) {
  * 销毁队列
  * @param queue 队列
  */
-void DestroyQueue(MyQueue *queue) {
-    ClearStack(&queue->s1);
-    ClearStack(&queue->s2);
+void _DestroyQueue(MyQueue *queue) {
+    Clear(&queue->s1);
+    Clear(&queue->s2);
 }
 
 
 int main(void) {
     MyQueue q;
-    InitQueue(&q);
-    Offer(&q, 1);
-    Offer(&q, 2);
-    Offer(&q, 3);
-    Offer(&q, 4);
-    PrintQueue(&q);//队头->队尾:[1,2,3,4]
+    _InitQueue(&q);
+    _Offer(&q, 1);
+    _Offer(&q, 2);
+    _Offer(&q, 3);
+    _Offer(&q, 4);
+    _PrintQueue(&q);//队头->队尾:[1,2,3,4]
     int e;
-    Poll(&q, &e);
+    _Poll(&q, &e);
     printf("出队元素为:%d\n", e);//1
-    PrintQueue(&q);//队头->队尾:[2,3,4]
-    printf("当前队列长度为:%d\n", GetQueueLength(q));//3
-    printf("此时队头元素为:%d\n", Peek(q));//2
-    DestroyQueue(&q);
+    _PrintQueue(&q);//队头->队尾:[2,3,4]
+    printf("当前队列长度为:%d\n", _GetLength(q));//3
+    printf("此时队头元素为:%d\n", _Peek(q));//2
+    _DestroyQueue(&q);
 }

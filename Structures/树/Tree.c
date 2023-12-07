@@ -102,6 +102,6 @@ int main() {
      *   2    4
      *  3    5 6
      */
-    CreateTree(&T,"123   45  6  ",13);
+    CreateTree(&T, "123   45  6  ", 13);
     PreOrderTraverse(T);
 }

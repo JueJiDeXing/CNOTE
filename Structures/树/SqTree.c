@@ -8,8 +8,8 @@
 #include "stdlib.h"
 #include "stdbool.h"
 
-int *initTree(int capacity) {
+int *InitTree(int capacity) {
     int *arr = malloc(sizeof(int) * capacity);
     return arr;
 }
-void
+//TODO
