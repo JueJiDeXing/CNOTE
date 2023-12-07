@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void printArray(int *arr, int rows, int cols) {
+void printArray(const int *arr, int rows, int cols) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             printf("%d ", *(arr + i * cols + j));
