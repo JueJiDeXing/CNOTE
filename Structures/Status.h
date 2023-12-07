@@ -7,5 +7,5 @@
 #define ERROR (-1)
 #define OVERFLOW (-2)
 #define DEFAULT_SIZE 16
-typedef int Status; // 状态码
+typedef int Status; // 状态码 -> 没什么用,不如直接返回void
 #endif //PROJECT_STATUS_H
