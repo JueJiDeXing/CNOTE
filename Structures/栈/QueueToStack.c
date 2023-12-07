@@ -3,7 +3,7 @@
 
 
 #include <stdio.h>
-#include "SqQueue.c"
+#include "../队列/SqQueue.c"
 
 //使用单队列模拟栈
 typedef struct MyStack {

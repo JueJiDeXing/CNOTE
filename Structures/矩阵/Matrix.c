@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <malloc.h>
+#include "../Status.h"
 
 #define ElemType int //矩阵内的数据类型
 #define MAXSIZE 100   //矩阵内最大元素个数

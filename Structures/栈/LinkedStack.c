@@ -1,11 +1,9 @@
 // Author: 绝迹的星 
 // Created on 2023/11/8
-// - Hello World.
-// - You are my world too.
 
 
 #include <stdio.h>
-#include "Status.c"
+#include "../Status.h"
 #include "stdbool.h"
 #include "stdlib.h"
 

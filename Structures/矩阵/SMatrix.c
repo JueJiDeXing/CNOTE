@@ -1,6 +1,6 @@
 // Author: 绝迹的星 
 // Created on 2023/11/20
-#include "Status.c"
+#include "../Status.h"
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -3,9 +3,10 @@
 // - Hello World.
 // - You are my world too.
 
-#include "Status.c"
+#include "../Status.h"
 #include "stdlib.h"
 #include "stdbool.h"
+
 
 typedef struct SqList {
     int *elem;

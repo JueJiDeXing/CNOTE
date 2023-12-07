@@ -1,12 +1,16 @@
-//
 // Created by 绝迹的星 on 2023/10/17.
-//
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
-#include "ArrayList.h"
-#include "Status.h"
+#include "../Status.h"
 
+typedef struct {
+    int *elem; //存储空间基址
+    int length; //当前存储长度
+    int capacity;//当前分配的存储容量
+} ArrayList;
+#define LIST_INIT_SIZE 50  // 线性表存储空间的初始分配量
 
 /**
  * 初始化顺序表
@@ -84,14 +88,15 @@ Status getElem_Array(ArrayList *L, int i, int *elem) {
  * @param e
  * @return
  */
-bool contain_Array(ArrayList *L, int e){
-    for(int i=0;i<L->length;i++){
-        if(L->elem[i]==e){
+bool contain_Array(ArrayList *L, int e) {
+    for (int i = 0; i < L->length; i++) {
+        if (L->elem[i] == e) {
             return true;
         }
     }
     return false;
 }
+
 /**
  * 按自定义方法获取元素索引
  * @param L
@@ -171,7 +176,7 @@ Status insert_Array(ArrayList *L, int e, int i) {
 Status delete_Array(ArrayList *L, int *e, int i) {
     if (i < 0 || i >= L->length)
         return ERROR;
-    *e=L->elem[i];
+    *e = L->elem[i];
     for (int j = i; j < L->length; j++)
         L->elem[j] = L->elem[j + 1];
     L->length--;
@@ -207,7 +212,7 @@ void unite_Array(ArrayList *L1, ArrayList *L2) {
 void merge_Array(ArrayList L1, ArrayList L2, ArrayList *L3) {
     int len1 = getLength_Array(&L1);
     int len2 = getLength_Array(&L2);
-    int  i = 0, j = 0;
+    int i = 0, j = 0;
     int e1 = 0, e2 = 0;
 
     while (i < len1 && j < len2) {
@@ -230,6 +235,7 @@ void merge_Array(ArrayList L1, ArrayList L2, ArrayList *L3) {
         append_Array(L3, e2);
     }
 }
+
 void printArrayList(ArrayList L) {
     printf("[");
     for (int i = 0; i < L.length; i++) {

@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "Status.c"
+#include "../Status.h"
 
 #define STACK_INIT_SIZE 100
 #define STACKINCREMENT 10

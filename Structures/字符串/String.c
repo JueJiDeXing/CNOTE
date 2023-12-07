@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "Status.h"
+#include "../Status.h"
 
 typedef struct {
     char *ch;

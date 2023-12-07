@@ -3,7 +3,7 @@
 
 
 #include <stdio.h>
-#include "Status.c"
+#include "../Status.h"
 #include "stdlib.h"
 #include "stdbool.h"
 

@@ -1,6 +1,6 @@
 // Author: 绝迹的星 
 // Created on 2023/10/26
-#include "Status.h"
+#include "../Status.h"
 #include "malloc.h"
 
 /*
@@ -15,10 +15,10 @@ typedef struct {
 } Stack;
 
 int getLength(Stack stack) {
-    return stack.size;
+    return stack.top - stack.base;
 }
 
-Status init_SqStack(Stack *stack) {  //初始化栈
+Status InitStack(Stack *stack) {  //初始化栈
     stack->base = malloc(sizeof(int) * DEFAULT_CAPACITY);
     stack->size = DEFAULT_CAPACITY;
     if (!stack->base) exit(ERROR);
@@ -26,7 +26,7 @@ Status init_SqStack(Stack *stack) {  //初始化栈
     return OK;
 }
 
-Status pop_SqStack(Stack *stack, int *e) { //弹栈
+Status Pop(Stack *stack, int *e) { //弹栈
     if (stack->top == stack->base) exit(ERROR);
     stack->top--;
     *e = *stack->top;
@@ -34,7 +34,7 @@ Status pop_SqStack(Stack *stack, int *e) { //弹栈
     return OK;
 }
 
-Status push_SqStack(Stack *stack, int e) {
+Status Push(Stack *stack, int e) {
     if (stack->size == stack->top - stack->base) {
         exit(OVERFLOW); // 栈满, 退出
     }
@@ -44,7 +44,7 @@ Status push_SqStack(Stack *stack, int e) {
     return OK;
 }
 
-Status peek_SqStack(Stack *stack, int *e) {
+Status Peek(Stack *stack, int *e) {
     if (stack->base == stack->top)
         exit(ERROR); // 空栈
     *e = *(stack->top - 1);

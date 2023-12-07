@@ -1,8 +1,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "LinkedQueue.h"
+#include <stdbool.h>
+#include "../Status.h"
 
+typedef struct QNode {
+    int data;
+    struct QNode *next;
+} QNode, *QueuePtr;
+
+typedef struct {
+    QueuePtr front;
+    QueuePtr rear;
+} LinkedQueue;
 Status InitQueue(LinkedQueue *Q) {
     Q->front = malloc(sizeof(QNode));
     if (!Q->front) exit(OVERFLOW);

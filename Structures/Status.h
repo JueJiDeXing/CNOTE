@@ -8,7 +8,6 @@
 #define OK 1
 #define ERROR (-1)
 #define OVERFLOW (-2)
-#define INFEASIBLE (-3)
+#define DEFAULT_SIZE 16
 typedef int Status; // 状态码
-
 #endif //PROJECT_STATUS_H

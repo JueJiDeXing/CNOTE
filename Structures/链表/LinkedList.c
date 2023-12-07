@@ -4,8 +4,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include <stdbool.h>
-#include "LinkedList.h"
+#include "../Status.h"
 
+typedef struct LNode { //结点类型
+    int data;
+    struct LNode *next;
+} LNode, *LinkedList;
 
 
 Status init_LinkedList(LinkedList *L) {
@@ -24,17 +28,19 @@ int getLength_LinkedList(LinkedList L) {
     }
     return len;
 }
-Status append_LinkedList(LinkedList *L, int e){
-    LinkedList p=(*L);
-    while(p->next){
-        p=p->next;
+
+Status append_LinkedList(LinkedList *L, int e) {
+    LinkedList p = (*L);
+    while (p->next) {
+        p = p->next;
     }
-    LNode* added= malloc(sizeof (LNode));
-    added->data=e;
-    added->next=NULL;
-    p->next=added;
+    LNode *added = malloc(sizeof(LNode));
+    added->data = e;
+    added->next = NULL;
+    p->next = added;
     return OK;
 }
+
 /**
  * 按索引插入元素到链表
  * @param L
@@ -44,9 +50,9 @@ Status append_LinkedList(LinkedList *L, int e){
  */
 Status insert_LinkedList(LinkedList *L, int n, int e) {
     LinkedList p = (*L);
-    for (int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++) {
         p = p->next;
-        if (!p) return INFEASIBLE;
+        if (!p) return ERROR;
     }
     LinkedList s = malloc(sizeof(LNode));
     s->data = e;
@@ -128,6 +134,7 @@ Status priorElem_LinkedList(LinkedList L, int cur_e, int *pre_e) {
     *pre_e = q->data;
     return OK;
 }
+
 /**
  * 获取后继
  * @param L
@@ -143,6 +150,7 @@ Status nextElem_LinkedList(LinkedList L, int cur_e, int *nex_e) {
     *nex_e = p->next->data;
     return OK;
 }
+
 /**
  * 插入节点到链表元素值为e的节点前
  * @param L
@@ -164,6 +172,7 @@ Status insertByVal_LinkedList(LinkedList *L, int e, int insertVal) {
     prev->next = s;
     return OK;
 }
+
 /**
  * 按值删除元素
  * @param L
@@ -183,6 +192,7 @@ Status delete_LinkedList(LinkedList *L, int e) {
     free(p);
     return OK;
 }
+
 /**
  * 合并升序链表Lb到升序链表La
  * @param La
@@ -208,6 +218,7 @@ Status merge_LinkedList(LinkedList *La, LinkedList *Lb) { //用于非递减链�
     free(Lb);       //释放Lb的头节点
     return OK;
 }
+
 /**
  * 链表反转
  * @param L

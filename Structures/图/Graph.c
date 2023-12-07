@@ -5,8 +5,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "Status.h"
-#include "LinkedQueue.c"
+#include "../Status.h"
+#include "E:\CLionProject\CProjects\DataStructure\Structures\队列\LinkedQueue.c"
 
 #define MAX_VERTEX_NUM 20                  // 最大顶点数
 
