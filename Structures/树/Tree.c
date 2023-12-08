@@ -88,20 +88,29 @@ void CreateTree(Tree *T, char *arr, int length) {
     create(T, arr, &curr, length);//递归函数
 }
 
-int main() {
-    /*
-     *    1
-     * 2    3
-     */
-    Tree T;
-    CreateTree(&T, "12  3  ", 7);
-    PreOrderTraverse(T);
-    printf("\n");
-    /*
-     *      1
-     *   2    4
-     *  3    5 6
-     */
-    CreateTree(&T, "123   45  6  ", 13);
-    PreOrderTraverse(T);
+int getHeight(Tree node) {
+    if (node == NULL) {
+        return 0;
+    }
+    //判断左子树是否平衡
+    int leftH = getHeight(node->left);
+    if (leftH == -1) {
+        return -1; // 不平衡提前退出，不再递归
+    }
+    //查看右子树是否平衡
+    int rightH = getHeight(node->right);
+    if (rightH == -1) {
+        return -1;
+    }
+    //根据左右子树高度判断当前子树是否平衡
+    if (abs(leftH - rightH) > 1) {
+        return -1;
+    }
+    return (int) fmax(leftH, rightH) + 1;//平衡,返回子树高度
+}
+/**
+ * 判断树是否平衡
+ */
+bool isBalance(Tree tree) {
+    return getHeight(tree) != -1;
 }
