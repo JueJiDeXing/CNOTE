@@ -44,7 +44,7 @@ int main() {
      */
     Tree tree1;
     char *arr1 = "341  2  5  ";
-    CreateTree(&tree1, arr1, 12);
+    CreateTree(&tree1, arr1, strlen(arr1));
     printf("测试1(应为true):%d", isBalance(tree1));
     printf("\n");
     /*测试2

@@ -38,7 +38,6 @@ bool hasSub(Tree tree, Tree subTree) {
     }
     //不同在左右子树中搜索
     return hasSub(tree->left, subTree) || hasSub(tree->right, subTree);
-
 }
 
 int main() {
