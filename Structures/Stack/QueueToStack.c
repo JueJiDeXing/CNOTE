@@ -24,7 +24,7 @@ Status InitStack(MyStack *s) {
 
 /**
  * 压栈
- * @param s 栈
+ * @param s Stack
  * @param e 要添加的元素值
  * @return
  */
@@ -54,7 +54,7 @@ Status Push(MyStack *s, int e) {
 
 /**
  * 弹栈
- * @param s 栈
+ * @param s Stack
  * @param e 用于存储弹出元素值
  * @return
  */
@@ -68,7 +68,7 @@ Status Pop(MyStack *s, int *e) {
 
 /**
  * 获取栈顶元素
- * @param s 栈
+ * @param s Stack
  * @return
  */
 int GetTop(MyStack s) {
@@ -80,7 +80,7 @@ int GetTop(MyStack s) {
 
 /**
  * 获取栈内元素个数
- * @param s 栈
+ * @param s Stack
  * @return
  */
 int GetStackLength(MyStack s) {
@@ -99,7 +99,7 @@ void PrintStack(MyStack s) {
 
 /**
  * 销毁栈
- * @param s 栈
+ * @param s Stack
  */
 void DestroyStack(MyStack *s) {
     ClearQueue(&s->q);

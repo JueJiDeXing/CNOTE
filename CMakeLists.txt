@@ -3,7 +3,6 @@ project(C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(test1 test/test1.c)
-add_executable(test2 test/test2.c)
-add_executable(test3 test/test3.c)
-add_executable(DisjoinSet Structures/并查集/DisJoinSet.c)
+add_executable(Prim Structures/Graph/MinSpanningTree/Prim.c)
+add_executable(Krusal Structures/Graph/MinSpanningTree/Krusal.c)
+add_executable(MinHeap Structures/Heap/MinHeap.c)

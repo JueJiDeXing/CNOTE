@@ -9,7 +9,7 @@
 
 #define MAX_VERTEX_NUM 20                  // 最大顶点数
 
-//图
+//Graph
 typedef struct {
     int vertexVal[MAX_VERTEX_NUM];  //顶点向量
     int matrix[MAX_VERTEX_NUM][MAX_VERTEX_NUM];     //邻接矩阵

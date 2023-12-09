@@ -21,7 +21,7 @@ bool isSame(Tree tree, Tree subTree) {
 }
 /**
  * 判断树中是否存在一颗子树
- * @param tree  树
+ * @param tree  Tree
  * @param subTree  子树
  * @return 如果存在返回true,否则返回false
  */

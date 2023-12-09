@@ -81,7 +81,7 @@ void create(Tree *node, char *arr, int *curr, int length) {
 
 /**
  * 建树
- * @param T 树
+ * @param T Tree
  * @param arr 数据源
  * @param length 总数据长度
  */

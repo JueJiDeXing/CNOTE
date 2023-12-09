@@ -7,14 +7,14 @@
 #include <stdlib.h>
 
 #define DefaultSize 100
-//并查集,主要用于判断两个项是否连通
+//DisJointSet,主要用于判断两个项是否连通
 //在Kruskal最小生成树算法中,判断两个顶点是否连通可以使用并查集
-typedef struct DisJoinSet {
+typedef struct DisJointSet {
     //例: s[a]=b表示元素a的根是b, s[b]=b表示元素b就是根 a,b处于同一集合,而b是集合老大
     int s[DefaultSize];//TODO 使用哈希表进行映射
-} DisJoinSet;
+} DisJointSet;
 
-void InitDisJoinSet(DisJoinSet *set) {
+void InitDisJoinSet(DisJointSet *set) {
     for (int i = 0; i < DefaultSize; i++) {
         set->s[i] = i;
     }
@@ -22,11 +22,11 @@ void InitDisJoinSet(DisJoinSet *set) {
 
 /**
  * 查找元素所在集合的根
- * @param set 并查集
+ * @param set DisJointSet
  * @param x 要查找元素
  * @return 元素所在集合的根
  */
-int Find(DisJoinSet *set, int x) {
+int Find(DisJointSet *set, int x) {
     if (x < 0 || x >= DefaultSize) {
         exit(-1);//索引越界
     }
@@ -39,33 +39,33 @@ int Find(DisJoinSet *set, int x) {
 
 /**
  * 合并两个集合
- * @param set 并查集
+ * @param set DisJointSet
  * @param x x所在集合
  * @param y y所在集合
  */
-void Union(DisJoinSet *set, int x, int y) {
+void Union(DisJointSet *set, int x, int y) {
     int rootX = Find(set, x), rootY = Find(set, y);
     set->s[rootY] = rootX;
     //TODO 使用size数组记录每个集合的大小,根据集合大小合并集合
 }
 /**
  * 判断两个元素是否连通(两个元素是否处于同一集合)
- * @param set 并查集
+ * @param set DisJointSet
  * @param x 元素x
  * @param y 元素y
  * @return 连通为true,否则false
  */
-bool isConnect(DisJoinSet set, int x, int y) {
+bool isConnect(DisJointSet set, int x, int y) {
     return Find(&set, x) == Find(&set, y);
 }
 
 int main1() {//测试
-    DisJoinSet set;
+    DisJointSet set;
     InitDisJoinSet(&set);
     Union(&set, 1, 2);
     Union(&set, 1, 3);
     Union(&set, 1, 5);
     Union(&set, 2, 4);
-    printf("%d", isConnect(set, 4, 5));//输出1,4和5连通
+    printf("%d", isConnect(set, 4, 5));//输出1 -> 4和5连通
     return 0;
 }

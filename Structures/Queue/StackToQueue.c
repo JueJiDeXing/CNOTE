@@ -32,7 +32,7 @@ Status _InitQueue(MyQueue *queue) {
 
 /**
  * 添加元素到队尾
- * @param queue 队列
+ * @param queue Queue
  * @param e 要添加的元素
  * @return
  */
@@ -69,7 +69,7 @@ Status _Offer(MyQueue *queue, int e) {
 
 /**
  * 弹出队头元素
- * @param queue 队列
+ * @param queue Queue
  * @param e 用于存储弹出的值
  * @return
  */
@@ -87,7 +87,7 @@ Status _Poll(MyQueue *queue, int *e) {
 
 /**
  * 获取队列头部元素
- * @param queue 队列
+ * @param queue Queue
  * @return
  */
 int _Peek(MyQueue queue) {
@@ -103,7 +103,7 @@ int _Peek(MyQueue queue) {
 
 /**
  * 获取队列内的元素个数
- * @param queue 队列
+ * @param queue Queue
  * @return
  */
 int _GetLength(MyQueue queue) {
@@ -112,7 +112,7 @@ int _GetLength(MyQueue queue) {
 
 /**
  * 打印队列
- * @param queue 队列
+ * @param queue Queue
  */
 void _PrintQueue(MyQueue *queue) {
     while (!IsEmpty(queue->s2)) {//先全部转到s1中再调用栈的打印方法
@@ -127,7 +127,7 @@ void _PrintQueue(MyQueue *queue) {
 
 /**
  * 销毁队列
- * @param queue 队列
+ * @param queue Queue
  */
 void _DestroyQueue(MyQueue *queue) {
     Clear(&queue->s1);

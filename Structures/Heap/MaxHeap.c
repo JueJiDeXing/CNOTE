@@ -71,7 +71,7 @@ void Heapify(MaxHeap *heap) {
 
 /**
  * 小元素下潜
- * @param heap 堆
+ * @param heap Heap
  * @param parent  父节点索引
  */
 void down(MaxHeap *heap, int parent) {
