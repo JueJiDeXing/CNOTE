@@ -21,7 +21,9 @@ typedef struct LinkedList {
 } LinkedList;
 
 void InitLinkedList(LinkedList *L);
+
 bool IsEmpty(LinkedList L);
+
 void linkFirst_(LinkedList *L, int e);
 
 void linkLast_(LinkedList *L, int e);
