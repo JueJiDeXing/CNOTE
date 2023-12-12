@@ -205,6 +205,39 @@ build HashMap.exe: C_EXECUTABLE_LINKER__HashMap_Debug CMakeFiles/HashMap.dir/Str
   TARGET_IMPLIB = libHashMap.dll.a
   TARGET_PDB = HashMap.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target DoubleLinkedList
+
+
+#############################################
+# Order-only phony target for DoubleLinkedList
+
+build cmake_object_order_depends_target_DoubleLinkedList: phony || CMakeFiles/DoubleLinkedList.dir
+
+build CMakeFiles/DoubleLinkedList.dir/Structures/LinkedList/DoubleLinkedList.c.obj: C_COMPILER__DoubleLinkedList_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/Structures/LinkedList/DoubleLinkedList.c || cmake_object_order_depends_target_DoubleLinkedList
+  DEP_FILE = CMakeFiles\DoubleLinkedList.dir\Structures\LinkedList\DoubleLinkedList.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\DoubleLinkedList.dir
+  OBJECT_FILE_DIR = CMakeFiles\DoubleLinkedList.dir\Structures\LinkedList
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target DoubleLinkedList
+
+
+#############################################
+# Link the executable DoubleLinkedList.exe
+
+build DoubleLinkedList.exe: C_EXECUTABLE_LINKER__DoubleLinkedList_Debug CMakeFiles/DoubleLinkedList.dir/Structures/LinkedList/DoubleLinkedList.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\DoubleLinkedList.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = DoubleLinkedList.exe
+  TARGET_IMPLIB = libDoubleLinkedList.dll.a
+  TARGET_PDB = DoubleLinkedList.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -231,6 +264,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build DoubleLinkedList: phony DoubleLinkedList.exe
+
 build HashMap: phony HashMap.exe
 
 build Krusal: phony Krusal.exe
@@ -249,7 +284,7 @@ build dddd: phony dddd.exe
 #############################################
 # Folder: E:/CLionProject/CProjects/DataStructure/cmake-build-debug
 
-build all: phony Prim.exe Krusal.exe MinHeap.exe dddd.exe HashMap.exe
+build all: phony Prim.exe Krusal.exe MinHeap.exe dddd.exe HashMap.exe DoubleLinkedList.exe
 
 # =============================================================================
 # Built-in targets
