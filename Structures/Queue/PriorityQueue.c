@@ -25,16 +25,16 @@ void InitPriorityQueue(PriorityQueue *queue, int capacity) {
     queue->capacity = capacity;
 }
 
-boolean isEmpty(PriorityQueue queue) {
+boolean IsEmpty(PriorityQueue queue) {
     return queue.size == 0;
 }
 
-boolean isFull(PriorityQueue queue) {
+boolean IsFull(PriorityQueue queue) {
     return queue.size == queue.capacity;
 }
 
-bool offer(PriorityQueue *queue, int value, int priority) {
-    if (isFull(*queue)) {
+bool Offer(PriorityQueue *queue, int value, int priority) {
+    if (IsFull(*queue)) {
         return false;
     }
     Priority data = {value, priority};
@@ -62,8 +62,8 @@ void Remove(PriorityQueue *queue, int index) {
     queue->size--;
 }
 
-int poll(PriorityQueue *queue) {
-    if (isEmpty(*queue)) {
+int Poll(PriorityQueue *queue) {
+    if (IsEmpty(*queue)) {
         exit(-1);
     }
     int max = selectMax(queue);
@@ -73,14 +73,25 @@ int poll(PriorityQueue *queue) {
 }
 
 
-int peek(PriorityQueue *queue) {
-    if (isEmpty(*queue)) {
+int Peek(PriorityQueue *queue) {
+    if (IsEmpty(*queue)) {
         exit(-1);
     }
     int index = selectMax(queue);
     return queue->array[index].val;
 }
-//TODO
-int main() {
 
+int main1() {
+    PriorityQueue queue;
+    InitPriorityQueue(&queue, 10);
+    Offer(&queue, 5, 5);
+    Offer(&queue, 3, 3);
+    Offer(&queue, 4, 4);
+    Offer(&queue, 1, 1);
+    Offer(&queue, 2, 2);
+    while (!IsEmpty(queue)) {
+        printf("%d,", Poll(&queue));//5,4,3,2,1 权重由大到小抛出
+    }
+    printf("\b");
+    return 0;
 }

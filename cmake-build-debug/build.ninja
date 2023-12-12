@@ -106,6 +106,105 @@ build Krusal.exe: C_EXECUTABLE_LINKER__Krusal_Debug CMakeFiles/Krusal.dir/Struct
   TARGET_IMPLIB = libKrusal.dll.a
   TARGET_PDB = Krusal.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target MinHeap
+
+
+#############################################
+# Order-only phony target for MinHeap
+
+build cmake_object_order_depends_target_MinHeap: phony || CMakeFiles/MinHeap.dir
+
+build CMakeFiles/MinHeap.dir/Structures/Heap/MinHeap.c.obj: C_COMPILER__MinHeap_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/Structures/Heap/MinHeap.c || cmake_object_order_depends_target_MinHeap
+  DEP_FILE = CMakeFiles\MinHeap.dir\Structures\Heap\MinHeap.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MinHeap.dir
+  OBJECT_FILE_DIR = CMakeFiles\MinHeap.dir\Structures\Heap
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target MinHeap
+
+
+#############################################
+# Link the executable MinHeap.exe
+
+build MinHeap.exe: C_EXECUTABLE_LINKER__MinHeap_Debug CMakeFiles/MinHeap.dir/Structures/Heap/MinHeap.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\MinHeap.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = MinHeap.exe
+  TARGET_IMPLIB = libMinHeap.dll.a
+  TARGET_PDB = MinHeap.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target dddd
+
+
+#############################################
+# Order-only phony target for dddd
+
+build cmake_object_order_depends_target_dddd: phony || CMakeFiles/dddd.dir
+
+build CMakeFiles/dddd.dir/test/dddd.c.obj: C_COMPILER__dddd_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/test/dddd.c || cmake_object_order_depends_target_dddd
+  DEP_FILE = CMakeFiles\dddd.dir\test\dddd.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\dddd.dir
+  OBJECT_FILE_DIR = CMakeFiles\dddd.dir\test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target dddd
+
+
+#############################################
+# Link the executable dddd.exe
+
+build dddd.exe: C_EXECUTABLE_LINKER__dddd_Debug CMakeFiles/dddd.dir/test/dddd.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\dddd.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = dddd.exe
+  TARGET_IMPLIB = libdddd.dll.a
+  TARGET_PDB = dddd.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target HashMap
+
+
+#############################################
+# Order-only phony target for HashMap
+
+build cmake_object_order_depends_target_HashMap: phony || CMakeFiles/HashMap.dir
+
+build CMakeFiles/HashMap.dir/Structures/HashMap/HashMap.c.obj: C_COMPILER__HashMap_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/Structures/HashMap/HashMap.c || cmake_object_order_depends_target_HashMap
+  DEP_FILE = CMakeFiles\HashMap.dir\Structures\HashMap\HashMap.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\HashMap.dir
+  OBJECT_FILE_DIR = CMakeFiles\HashMap.dir\Structures\HashMap
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target HashMap
+
+
+#############################################
+# Link the executable HashMap.exe
+
+build HashMap.exe: C_EXECUTABLE_LINKER__HashMap_Debug CMakeFiles/HashMap.dir/Structures/HashMap/HashMap.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\HashMap.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = HashMap.exe
+  TARGET_IMPLIB = libHashMap.dll.a
+  TARGET_PDB = HashMap.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -132,9 +231,15 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build HashMap: phony HashMap.exe
+
 build Krusal: phony Krusal.exe
 
+build MinHeap: phony MinHeap.exe
+
 build Prim: phony Prim.exe
+
+build dddd: phony dddd.exe
 
 # =============================================================================
 # Folder targets.
@@ -144,7 +249,7 @@ build Prim: phony Prim.exe
 #############################################
 # Folder: E:/CLionProject/CProjects/DataStructure/cmake-build-debug
 
-build all: phony Prim.exe Krusal.exe
+build all: phony Prim.exe Krusal.exe MinHeap.exe dddd.exe HashMap.exe
 
 # =============================================================================
 # Built-in targets

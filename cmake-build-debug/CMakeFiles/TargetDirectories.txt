@@ -1,4 +1,7 @@
 E:/CLionProject/CProjects/DataStructure/cmake-build-debug/CMakeFiles/Prim.dir
 E:/CLionProject/CProjects/DataStructure/cmake-build-debug/CMakeFiles/Krusal.dir
+E:/CLionProject/CProjects/DataStructure/cmake-build-debug/CMakeFiles/MinHeap.dir
+E:/CLionProject/CProjects/DataStructure/cmake-build-debug/CMakeFiles/dddd.dir
+E:/CLionProject/CProjects/DataStructure/cmake-build-debug/CMakeFiles/HashMap.dir
 E:/CLionProject/CProjects/DataStructure/cmake-build-debug/CMakeFiles/edit_cache.dir
 E:/CLionProject/CProjects/DataStructure/cmake-build-debug/CMakeFiles/rebuild_cache.dir
