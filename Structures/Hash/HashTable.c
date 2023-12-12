@@ -30,15 +30,15 @@ void InitEntry(Entry *entry, int hash, int key, int value) {
  哈希表<br>
  基于数组与链表实现
  */
-typedef struct HashMap {
+typedef struct HashTable {
     Entry **table;//2^n大小
     int size;
     int currCapacity;
     float loadFactor;//负载因子,当 元素个数/数组长度=0.75时 扩容数组
     int threshold;//阈值
-} HashMap;
+} HashTable;
 
-void InitHashMap(HashMap *map) {
+void InitHashMap(HashTable *map) {
     map->size = 0;
     map->loadFactor = 0.75F;
     map->currCapacity = DefaultSize;
@@ -54,7 +54,7 @@ void InitHashMap(HashMap *map) {
  <h1>根据hash码获取value</h1>
  </div>
  */
-int _Get(HashMap *map, int hash, int key) {
+int _Get(HashTable *map, int hash, int key) {
     int index = hash & (map->currCapacity - 1);
     //hash mod length = hash & (length-1) 当且仅当 length=2^n
     //  2进制除10、100、1000,余数为被除数的后1、2、3位
@@ -77,7 +77,7 @@ int _Get(HashMap *map, int hash, int key) {
  <h1>扩容</h1>
  </div>
  */
-void resize(HashMap *map) {
+void resize(HashTable *map) {
     //扩容散列原数据
     int newCapacity = map->currCapacity << 1;
 
@@ -145,7 +145,7 @@ void resize(HashMap *map) {
  <h1>向hash表存入键值对</h1>
  如果key重复则更新value</div>
  */
-void _Put(HashMap *map, int hash, int key, int value) {
+void _Put(HashTable *map, int hash, int key, int value) {
     int index = hash & (map->currCapacity - 1);
     Entry *added = malloc(sizeof(Entry));
     if (added == NULL) {
@@ -183,7 +183,7 @@ void _Put(HashMap *map, int hash, int key, int value) {
  <h1>根据hash码删除</h1>
  </div>
  */
-int _Remove(HashMap *map, int hash, int key) {
+int _Remove(HashTable *map, int hash, int key) {
     int index = hash & (map->currCapacity - 1);
     if (map->table[index] == NULL) {
         //无元素,直接添加
@@ -224,30 +224,30 @@ static int getHash(int key) {
     return hash ^ (hash >> 16);
 }
 
-int Get(HashMap *map, int key) {
+int Get(HashTable *map, int key) {
     int hash = getHash(key);
     return _Get(map, hash, key);
 }
 
 
-void Put(HashMap *map, int key, int value) {
+void Put(HashTable *map, int key, int value) {
     int hash = getHash(key);
     _Put(map, hash, key, value);
 }
 
-int Remove(HashMap *map, int key) {
+int Remove(HashTable *map, int key) {
     int hash = getHash(key);
     return _Remove(map, hash, key);
 }
 
-int GetLength(HashMap map) {
+int GetLength(HashTable map) {
     return map.size;
 }
 
 /**
  * 打印链表长度,按长度分组,长度为1有xx个...
  */
-void PrintLength(HashMap map) {
+void PrintLength(HashTable map) {
     int sums[map.currCapacity];
     for (int i = 0; i < map.currCapacity; i++) {
         sums[i] = 0;
@@ -280,7 +280,7 @@ void PrintLength(HashMap map) {
 /**
  * 打印链表长度,按长度分组,长度为1有xx个...
  */
-void PrintMap(HashMap map) {
+void PrintMap(HashTable map) {
     for (int i = 0; i < map.currCapacity; i++) {
         Entry *p = map.table[i];
         printf("[");
@@ -293,19 +293,32 @@ void PrintMap(HashMap map) {
     printf("\b\b\n");
 }
 
+bool ContainsKey(HashTable map, int key) {
+    int hash = getHash(key);
+    int index = (hash & 0x7FFFFFFF) % map.currCapacity;
+    for (Entry *e = map.table[index]; e != NULL; e = e->next) {
+        if ((e->hash == hash) && e->key == key) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 int main1() {
-    HashMap map;
+    HashTable map;
     InitHashMap(&map);
     for (int i = 0; i < 100; i++) {
         Put(&map, i, i);
     }
     PrintLength(map);//长度为1有77个, 长度为2有10个, 长度为3有1个
     PrintMap(map);//[0->88->NULL], [1->10->98->NULL], [2->20->NULL], [3->30->NULL], [4->40->NULL],...
-    printf("%d\n",Get(&map, 11));//11
-    printf("%d\n",Get(&map, 12));//12
-    Remove(&map,13);
-    printf("%d\n",Get(&map, 13)); // -1 表示没有
-    Put(&map,13,13);
-    printf("%d\n",Get(&map, 13)); // 13
+    printf("%d\n", Get(&map, 11));//11
+    printf("%d\n", Get(&map, 12));//12
+    Remove(&map, 13);
+    printf("%d\n", Get(&map, 13)); // -1 表示没有
+    Put(&map, 13, 13);
+    printf("%d\n", Get(&map, 13)); // 13
+    printf("%d", ContainsKey(map, 13));//1
     return 0;
 }

@@ -181,11 +181,11 @@ build dddd.exe: C_EXECUTABLE_LINKER__dddd_Debug CMakeFiles/dddd.dir/test/dddd.c.
 
 build cmake_object_order_depends_target_HashMap: phony || CMakeFiles/HashMap.dir
 
-build CMakeFiles/HashMap.dir/Structures/HashMap/HashMap.c.obj: C_COMPILER__HashMap_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/Structures/HashMap/HashMap.c || cmake_object_order_depends_target_HashMap
-  DEP_FILE = CMakeFiles\HashMap.dir\Structures\HashMap\HashMap.c.obj.d
+build CMakeFiles/HashMap.dir/Structures/Hash/HashTable.c.obj: C_COMPILER__HashMap_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/Structures/Hash/HashTable.c || cmake_object_order_depends_target_HashMap
+  DEP_FILE = CMakeFiles\HashMap.dir\Structures\Hash\HashTable.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\HashMap.dir
-  OBJECT_FILE_DIR = CMakeFiles\HashMap.dir\Structures\HashMap
+  OBJECT_FILE_DIR = CMakeFiles\HashMap.dir\Structures\Hash
 
 
 # =============================================================================
@@ -195,7 +195,7 @@ build CMakeFiles/HashMap.dir/Structures/HashMap/HashMap.c.obj: C_COMPILER__HashM
 #############################################
 # Link the executable HashMap.exe
 
-build HashMap.exe: C_EXECUTABLE_LINKER__HashMap_Debug CMakeFiles/HashMap.dir/Structures/HashMap/HashMap.c.obj
+build HashMap.exe: C_EXECUTABLE_LINKER__HashMap_Debug CMakeFiles/HashMap.dir/Structures/Hash/HashTable.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\HashMap.dir
@@ -238,6 +238,39 @@ build DoubleLinkedList.exe: C_EXECUTABLE_LINKER__DoubleLinkedList_Debug CMakeFil
   TARGET_IMPLIB = libDoubleLinkedList.dll.a
   TARGET_PDB = DoubleLinkedList.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target DisJointSetMap
+
+
+#############################################
+# Order-only phony target for DisJointSetMap
+
+build cmake_object_order_depends_target_DisJointSetMap: phony || CMakeFiles/DisJointSetMap.dir
+
+build CMakeFiles/DisJointSetMap.dir/Structures/DisJointSet/DisJointSetMap.c.obj: C_COMPILER__DisJointSetMap_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/Structures/DisJointSet/DisJointSetMap.c || cmake_object_order_depends_target_DisJointSetMap
+  DEP_FILE = CMakeFiles\DisJointSetMap.dir\Structures\DisJointSet\DisJointSetMap.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\DisJointSetMap.dir
+  OBJECT_FILE_DIR = CMakeFiles\DisJointSetMap.dir\Structures\DisJointSet
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target DisJointSetMap
+
+
+#############################################
+# Link the executable DisJointSetMap.exe
+
+build DisJointSetMap.exe: C_EXECUTABLE_LINKER__DisJointSetMap_Debug CMakeFiles/DisJointSetMap.dir/Structures/DisJointSet/DisJointSetMap.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\DisJointSetMap.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = DisJointSetMap.exe
+  TARGET_IMPLIB = libDisJointSetMap.dll.a
+  TARGET_PDB = DisJointSetMap.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -264,6 +297,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build DisJointSetMap: phony DisJointSetMap.exe
+
 build DoubleLinkedList: phony DoubleLinkedList.exe
 
 build HashMap: phony HashMap.exe
@@ -284,7 +319,7 @@ build dddd: phony dddd.exe
 #############################################
 # Folder: E:/CLionProject/CProjects/DataStructure/cmake-build-debug
 
-build all: phony Prim.exe Krusal.exe MinHeap.exe dddd.exe HashMap.exe DoubleLinkedList.exe
+build all: phony Prim.exe Krusal.exe MinHeap.exe dddd.exe HashMap.exe DoubleLinkedList.exe DisJointSetMap.exe
 
 # =============================================================================
 # Built-in targets
