@@ -94,13 +94,22 @@ int getHeight(Tree node) {
     if (node == NULL) {
         return 0;
     }
-    //判断左子树是否平衡
     int leftH = getHeight(node->left);
+    int rightH = getHeight(node->right);
+    return (int) fmax(leftH, rightH) + 1;//返回子树高度
+}
+
+int getBalanceHeight(Tree node) {
+    if (node == NULL) {
+        return 0;
+    }
+    //判断左子树是否平衡
+    int leftH = getBalanceHeight(node->left);
     if (leftH == -1) {
         return -1; // 不平衡提前退出，不再递归
     }
     //查看右子树是否平衡
-    int rightH = getHeight(node->right);
+    int rightH = getBalanceHeight(node->right);
     if (rightH == -1) {
         return -1;
     }
@@ -110,9 +119,43 @@ int getHeight(Tree node) {
     }
     return (int) fmax(leftH, rightH) + 1;//平衡,返回子树高度
 }
+
 /**
  * 判断树是否平衡
  */
 bool isBalance(Tree tree) {
-    return getHeight(tree) != -1;
+    return getBalanceHeight(tree) != -1;
+}
+/**
+ * 从根节点开始,判断subTree是否与tree相同
+ */
+bool isSubSame(Tree tree, Tree subTree) {
+    if (subTree == NULL) {//比较完了,返回true
+        return true;
+    }
+    if (tree == NULL || tree->val != subTree->val) {//不同
+        return false;
+    }
+    //左右都需要相同
+    return isSubSame(tree->left, subTree->left) && isSubSame(tree->right, subTree->right);
+}
+/**
+ * 判断树中是否存在一颗子树
+ * @param tree  Tree
+ * @param subTree  子树
+ * @return 如果存在返回true,否则返回false
+ */
+bool hasSub(Tree tree, Tree subTree) {
+    if (subTree == NULL) {//判断完了,返回true
+        return true;
+    }
+    if (tree == NULL) {//不同
+        return false;
+    }
+    //判断当前节点开始是否相同
+    if (isSubSame(tree, subTree)) {
+        return true;
+    }
+    //不同在左右子树中搜索
+    return hasSub(tree->left, subTree) || hasSub(tree->right, subTree);
 }

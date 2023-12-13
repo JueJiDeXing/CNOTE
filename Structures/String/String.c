@@ -5,6 +5,7 @@
 
 
 #include <stdio.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include "../Status.h"
 
@@ -12,7 +13,9 @@ typedef struct {
     char *ch;
     int length;
 } String;
-
+bool IsEmpty(String str){
+    return str.length==0;
+}
 /**
  * 给字符串赋值
  * @param str 要赋值的字符串
