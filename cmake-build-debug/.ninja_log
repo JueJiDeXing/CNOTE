@@ -1,5 +1,5 @@
 # ninja log v5
-1	266	7240963133763462	build.ninja	5b7189807784214f
+1	266	7242665479236386	build.ninja	5b7189807784214f
 2	128	7236204505716379	CMakeFiles/Graph.dir/Structures/Graph.c.obj	16794849ad8a5e7b
 4	226	7237284243627984	CMakeFiles/test1.dir/test/test1.c.obj	475106e266d490da
 129	261	7236204506970307	Graph.exe	9a9be08cde706b28
@@ -9,6 +9,7 @@
 165	380	7237284938980368	test3.exe	f1d0304cc99dfa13
 125	270	7240960148217759	HashMap.exe	2aac1ad9f6d1cdaf
 205	437	7237284617687814	test2.exe	9449fd8d2a988b2d
+217	536	7240964600634334	DisJointSetMap.exe	5ef6fb8b73b603f8
 2	104	7238407082678461	CMakeFiles/Prim.dir/Structures/Graph/MinSpanningTree/Prim.c.obj	728962eac042be8c
 104	234	7238407083936175	Prim.exe	53f1354154f78d0a
 2	142	7240943034033727	CMakeFiles/DoubleLinkedList.dir/Structures/LinkedList/DoubleLinkedList.c.obj	a1484e0232443a91
@@ -18,4 +19,17 @@
 143	266	7240943035225608	DoubleLinkedList.exe	4e37955573e1e8db
 2	125	7240960146847028	CMakeFiles/HashMap.dir/Structures/Hash/HashMap.c.obj	83968e1e3b73153d
 1	215	7240964597572776	CMakeFiles/DisJointSetMap.dir/Structures/DisJointSet/DisJointSetMap.c.obj	c868882394693175
-217	536	7240964600634334	DisJointSetMap.exe	5ef6fb8b73b603f8
+1	334	7242665544083312	CMakeFiles/SqTree.dir/Structures/Tree/SqTree.c.obj	9a6d9afca6d99da
+335	738	7242665548061447	SqTree.exe	56dba0a5074aa190
+2	116	7242665808625564	CMakeFiles/SqTree.dir/Structures/Tree/SqTree.c.obj	9a6d9afca6d99da
+116	270	7242665810112220	SqTree.exe	56dba0a5074aa190
+2	119	7242665931861474	CMakeFiles/SqTree.dir/Structures/Tree/SqTree.c.obj	9a6d9afca6d99da
+119	265	7242665933265036	SqTree.exe	56dba0a5074aa190
+2	121	7242666348138232	CMakeFiles/SqTree.dir/Structures/Tree/SqTree.c.obj	9a6d9afca6d99da
+121	268	7242666349542272	SqTree.exe	56dba0a5074aa190
+2	112	7242666877548322	CMakeFiles/SqTree.dir/Structures/Tree/SqTree.c.obj	9a6d9afca6d99da
+113	260	7242666878981961	SqTree.exe	56dba0a5074aa190
+4	102	7242667006762140	CMakeFiles/SqTree.dir/Structures/Tree/SqTree.c.obj	9a6d9afca6d99da
+103	232	7242667007991673	SqTree.exe	56dba0a5074aa190
+2	121	7242670936974015	CMakeFiles/SqTree.dir/Structures/Tree/SqTree.c.obj	9a6d9afca6d99da
+122	271	7242670938433265	SqTree.exe	56dba0a5074aa190
