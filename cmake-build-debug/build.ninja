@@ -41,70 +41,103 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = E$:/CLionProject/CProjects/DataStructure/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target SqTree
+# Object build statements for EXECUTABLE target test1
 
 
 #############################################
-# Order-only phony target for SqTree
+# Order-only phony target for test1
 
-build cmake_object_order_depends_target_SqTree: phony || CMakeFiles/SqTree.dir
+build cmake_object_order_depends_target_test1: phony || CMakeFiles/test1.dir
 
-build CMakeFiles/SqTree.dir/Structures/Tree/SqTree.c.obj: C_COMPILER__SqTree_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/Structures/Tree/SqTree.c || cmake_object_order_depends_target_SqTree
-  DEP_FILE = CMakeFiles\SqTree.dir\Structures\Tree\SqTree.c.obj.d
+build CMakeFiles/test1.dir/Algorithm/ÅÅÐò.c.obj: C_COMPILER__test1_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/Algorithm/ÅÅÐò.c || cmake_object_order_depends_target_test1
+  DEP_FILE = CMakeFiles\test1.dir\Algorithm\ÅÅÐò.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\SqTree.dir
-  OBJECT_FILE_DIR = CMakeFiles\SqTree.dir\Structures\Tree
+  OBJECT_DIR = CMakeFiles\test1.dir
+  OBJECT_FILE_DIR = CMakeFiles\test1.dir\Algorithm
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target SqTree
+# Link build statements for EXECUTABLE target test1
 
 
 #############################################
-# Link the executable SqTree.exe
+# Link the executable test1.exe
 
-build SqTree.exe: C_EXECUTABLE_LINKER__SqTree_Debug CMakeFiles/SqTree.dir/Structures/Tree/SqTree.c.obj
+build test1.exe: C_EXECUTABLE_LINKER__test1_Debug CMakeFiles/test1.dir/Algorithm/ÅÅÐò.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\SqTree.dir
+  OBJECT_DIR = CMakeFiles\test1.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = SqTree.exe
-  TARGET_IMPLIB = libSqTree.dll.a
-  TARGET_PDB = SqTree.exe.dbg
+  TARGET_FILE = test1.exe
+  TARGET_IMPLIB = libtest1.dll.a
+  TARGET_PDB = test1.exe.dbg
 
 # =============================================================================
-# Object build statements for EXECUTABLE target BSTree
+# Object build statements for EXECUTABLE target test2
 
 
 #############################################
-# Order-only phony target for BSTree
+# Order-only phony target for test2
 
-build cmake_object_order_depends_target_BSTree: phony || CMakeFiles/BSTree.dir
+build cmake_object_order_depends_target_test2: phony || CMakeFiles/test2.dir
 
-build CMakeFiles/BSTree.dir/Structures/Tree/BSTree.c.obj: C_COMPILER__BSTree_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/Structures/Tree/BSTree.c || cmake_object_order_depends_target_BSTree
-  DEP_FILE = CMakeFiles\BSTree.dir\Structures\Tree\BSTree.c.obj.d
+build CMakeFiles/test2.dir/test/test2.c.obj: C_COMPILER__test2_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/test/test2.c || cmake_object_order_depends_target_test2
+  DEP_FILE = CMakeFiles\test2.dir\test\test2.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\BSTree.dir
-  OBJECT_FILE_DIR = CMakeFiles\BSTree.dir\Structures\Tree
+  OBJECT_DIR = CMakeFiles\test2.dir
+  OBJECT_FILE_DIR = CMakeFiles\test2.dir\test
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target BSTree
+# Link build statements for EXECUTABLE target test2
 
 
 #############################################
-# Link the executable BSTree.exe
+# Link the executable test2.exe
 
-build BSTree.exe: C_EXECUTABLE_LINKER__BSTree_Debug CMakeFiles/BSTree.dir/Structures/Tree/BSTree.c.obj
+build test2.exe: C_EXECUTABLE_LINKER__test2_Debug CMakeFiles/test2.dir/test/test2.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\BSTree.dir
+  OBJECT_DIR = CMakeFiles\test2.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = BSTree.exe
-  TARGET_IMPLIB = libBSTree.dll.a
-  TARGET_PDB = BSTree.exe.dbg
+  TARGET_FILE = test2.exe
+  TARGET_IMPLIB = libtest2.dll.a
+  TARGET_PDB = test2.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test3
+
+
+#############################################
+# Order-only phony target for test3
+
+build cmake_object_order_depends_target_test3: phony || CMakeFiles/test3.dir
+
+build CMakeFiles/test3.dir/test/test3.c.obj: C_COMPILER__test3_unscanned_Debug E$:/CLionProject/CProjects/DataStructure/test/test3.c || cmake_object_order_depends_target_test3
+  DEP_FILE = CMakeFiles\test3.dir\test\test3.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\test3.dir
+  OBJECT_FILE_DIR = CMakeFiles\test3.dir\test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test3
+
+
+#############################################
+# Link the executable test3.exe
+
+build test3.exe: C_EXECUTABLE_LINKER__test3_Debug CMakeFiles/test3.dir/test/test3.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\test3.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = test3.exe
+  TARGET_IMPLIB = libtest3.dll.a
+  TARGET_PDB = test3.exe.dbg
 
 
 #############################################
@@ -132,9 +165,11 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build BSTree: phony BSTree.exe
+build test1: phony test1.exe
 
-build SqTree: phony SqTree.exe
+build test2: phony test2.exe
+
+build test3: phony test3.exe
 
 # =============================================================================
 # Folder targets.
@@ -144,7 +179,7 @@ build SqTree: phony SqTree.exe
 #############################################
 # Folder: E:/CLionProject/CProjects/DataStructure/cmake-build-debug
 
-build all: phony SqTree.exe BSTree.exe
+build all: phony test1.exe test2.exe test3.exe
 
 # =============================================================================
 # Built-in targets
