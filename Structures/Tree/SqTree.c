@@ -10,7 +10,7 @@
 
 typedef struct Tree {
     int *nodes;
-    int n;
+    int n;//当前索引=节点数+2
     int capacity;
 } Tree;
 
@@ -32,19 +32,20 @@ enum {
 };
 
 /**
- 前序遍历<br>
+ 遍历<br>
  左孩子索引=父索引*2 ; 右孩子索引=父索引*2+1
+ @param start 当前索引位置
+ @param tree 树
+ @param method 指定前序/中序/后序遍历
  */
 void doOrder(int start, Tree *tree, int method) {
     if (start >= tree->n) return;
-
     if (method == prev) printf("%d,", tree->nodes[start]);//前序
-    int leftIndex = start <<1;
+    int leftIndex = start << 1;
     doOrder(leftIndex, tree, method);//左
     if (method == in)printf("%d,", tree->nodes[start]);//中序
     doOrder(leftIndex | 1, tree, method);//右
     if (method == post) printf("%d,", tree->nodes[start]);//后序
-
 }
 
 /**
@@ -71,7 +72,18 @@ void postOrder(Tree *tree) {
     printf("\b\n");
 }
 
-int main() {
+/**
+ * 层序遍历
+ * @param tree 树
+ */
+void levelOrder(Tree *tree) {
+    for (int i = 1; i < tree->n; i++) {
+        printf("%d,", tree->nodes[i]);
+    }
+    printf("\b");
+}
+
+int main1() {
     Tree tree;
     InitTree(&tree, 16);
     /*
@@ -82,6 +94,7 @@ int main() {
      *   前:1,2,4,5,3,6,7
      *   中:4,2,5,1,6,3,7
      *   后:4,5,2,6,7,3,1
+     *   层:1,2,3,4,5,6,7
      */
     put(&tree, 1);
     put(&tree, 2);
@@ -93,4 +106,6 @@ int main() {
     prevOrder(&tree);//1,2,4,5,3,6,7
     inOrder(&tree);//4,2,5,1,6,3,7
     postOrder(&tree);//4,5,2,6,7,3,1
+    levelOrder(&tree);//1,2,3,4,5,6,7
+    return 0;
 }
