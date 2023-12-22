@@ -1,9 +1,9 @@
 // Author: 绝迹的星 
-// Created on 2023/12/15
+// Created on 2023/12/22
 
 
-#include <stdio.h>
-#include "../Algorithm/Sort/ArrayUtil.h"
+#include <stdlib.h>
+#include "ArrayUtil.h"
 
 /**
  合并两个有序数组
@@ -68,19 +68,4 @@ void mergeSort(int *a1, int len) {
     int *a2 = malloc(sizeof(int) * len);//临时数组,在合并时将数据放入
     split(a1, 0, len - 1, a2, len);
     free(a2);
-}
-
-
-int main() {
-    printf("测试1:\n");
-    int arr1[] = {3, 5, 4, 1, 6, 8, 2};
-    int len1 = sizeof(arr1) / sizeof(int);
-    printf("开始排序:\n");
-    mergeSort(arr1, len1);
-
-    printf("测试2:\n");
-    int arr2[] = {51, 3, 5, 10, 16, 20, 4, 1, 72, 6, 8, 2};
-    int len2 = sizeof(arr2) / sizeof(int);
-    printf("开始排序:\n");
-    mergeSort(arr2, len2);
 }

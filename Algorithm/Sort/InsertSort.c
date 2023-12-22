@@ -6,7 +6,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#include "ArrayUtil.c"
+#include "ArrayUtil.h"
 /**
  * 插入排序
  * 将数组分为两部分,已排序[0,low-1]和未排序[low,length-1]

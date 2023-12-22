@@ -12,11 +12,9 @@ void printArr(const int *arr, int len) {
     }
     printf("\b\n");
 }
+
 void swap(int *a, int i, int j) {
     int t = a[i];
     a[i] = a[j];
     a[j] = t;
-}
-int main() {
-
 }

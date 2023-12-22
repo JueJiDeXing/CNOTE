@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "ArrayUtil.c"
+#include "ArrayUtil.h"
 
 /**
  * 冒泡排序,每轮比较相邻元素
