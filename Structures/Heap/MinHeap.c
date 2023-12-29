@@ -6,10 +6,10 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#define DefaultSize 100
+
 //小顶堆,每个节点都比它的孩子节点小,堆顶始终为最小值
 typedef struct MinHeap {
-    int array[DefaultSize];
+    int *array;
     int size;//当前元素个数
     int capacity;//最大容量
 } MinHeap;
@@ -23,6 +23,7 @@ void Heapify(MinHeap *heap);
 void InitHeapByCapacity(MinHeap *heap, int capacity) {
     heap->size = 0;
     heap->capacity = capacity;
+    heap->array = malloc(sizeof(int) * capacity);
     for (int i = 0; i < capacity; i++) {
         heap->array[i] = 0;
     }
@@ -48,8 +49,12 @@ void swap(MinHeap *heap, int i, int j) {
 void InitHeap(MinHeap *heap, const int arr[], int len, int capacity) {
     heap->size = len;
     heap->capacity = capacity;
+    heap->array = malloc(sizeof(int) * capacity);
     for (int i = 0; i < len; i++) {
         heap->array[i] = arr[i];
+    }
+    for (int i =len; i < capacity; i++) {
+        heap->array[i] = 0;
     }
     Heapify(heap);
 }

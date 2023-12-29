@@ -69,3 +69,17 @@ void mergeSort(int *a1, int len) {
     split(a1, 0, len - 1, a2, len);
     free(a2);
 }
+int main1_1() {
+    printf("测试1:\n");
+    int arr1[] = {3, 5, 4, 1, 6, 8, 2};
+    int len1 = sizeof(arr1) / sizeof(int);
+    printf("开始排序:\n");
+    mergeSort(arr1, len1);
+
+    printf("测试2:\n");
+    int arr2[] = {51, 3, 5, 10, 16, 20, 4, 1, 72, 6, 8, 2};
+    int len2 = sizeof(arr2) / sizeof(int);
+    printf("开始排序:\n");
+    mergeSort(arr2, len2);
+    return 0;
+}

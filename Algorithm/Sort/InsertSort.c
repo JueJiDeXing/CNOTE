@@ -3,9 +3,6 @@
 
 
 #include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-
 #include "ArrayUtil.h"
 /**
  * 插入排序
@@ -15,7 +12,6 @@
  * @param len 数组长度
  */
 void insertSort(int *a, int len) {
-    printf("开始排序:\n");
     for (int low = 1; low < len; low++) {
         int t = a[low];
         int i = low - 1;
@@ -27,6 +23,5 @@ void insertSort(int *a, int len) {
         if (i != low - 1) {//找到插入位置
             a[i + 1] = t;
         }
-        printArr(a, len);
     }
 }
